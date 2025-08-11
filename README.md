@@ -1,6 +1,6 @@
 # Full Stack Open
 
-This repo contains my self-study attempt to University of Helsinki course: Full Stack Open.
+This repo contains my self-study attempt to University of Helsinki course: [Full Stack Open](https://fullstackopen.com/en/).
 
 According to the course's webiste:
 
