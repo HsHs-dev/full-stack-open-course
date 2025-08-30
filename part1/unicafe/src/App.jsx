@@ -29,20 +29,34 @@ const Button = props => <button onClick={props.onClick}>{props.text}</button>
 const Statistics = ({good, neutral, bad}) => {
 
   const total = good + neutral + bad
-  const average = total === 0 ? 0 : (good - bad) / total
-  const positive = total === 0 ? 0 : good / total * 100
+  const average = (good - bad) / total
+  const positive = good / total * 100
+
+  if (total === 0) {
+    return <p>No feedback given</p>
+  }
 
   return (
     <div>
       <h1>Statistics</h1>
-      <p>good {good}</p>
-      <p>neutral {neutral}</p>
-      <p>bad {bad}</p>
-      <p>all {total}</p>
-      <p>average {average}</p>
-      <p>positive {positive} %</p>
+      <StatisticLine text="good" value={good} />
+      <StatisticLine text="netural" value={neutral} />
+      <StatisticLine text="bad" value={bad} />
+      <StatisticLine text="total" value={total} />
+      <StatisticLine text="average" value={average} />
+      <StatisticLine text="positive" value={positive} />
     </div>
  )
+}
+
+const StatisticLine = ({text, value}) => {
+
+  return (
+    <div>
+      <p>{text} {value}</p>
+    </div>
+  )
+
 }
 
 export default App
