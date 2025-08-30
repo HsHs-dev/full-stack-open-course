@@ -17,16 +17,33 @@ const App = () => {
       <Button onClick={incGood} text="good"/>
       <Button onClick={incNeutral} text="neutral"/>
       <Button onClick={incBad} text="bad"/>
-
-      <h2>Statistics</h2>
-      <p>good {good}</p>
-      <p>neutral {neutral}</p>
-      <p>bad {bad}</p>
+      
+      <Statistics good={good} neutral={neutral} bad={bad} />
     </div>
   )
 
 }
 
 const Button = props => <button onClick={props.onClick}>{props.text}</button>
+
+const Statistics = ({good, neutral, bad}) => {
+
+  const total = good + neutral + bad
+  const average = total === 0 ? 0 : (good - bad) / total
+  const positive = total === 0 ? 0 : good / total * 100
+
+  return (
+    <div>
+      <h1>Statistics</h1>
+      <p>good {good}</p>
+      <p>neutral {neutral}</p>
+      <p>bad {bad}</p>
+      <p>all {total}</p>
+      <p>average {average}</p>
+      <p>positive {positive} %</p>
+    </div>
+ )
+
+}
 
 export default App
