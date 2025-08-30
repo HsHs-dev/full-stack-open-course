@@ -43,7 +43,6 @@ const Statistics = ({good, neutral, bad}) => {
       <p>positive {positive} %</p>
     </div>
  )
-
 }
 
 export default App
