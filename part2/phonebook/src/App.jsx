@@ -5,14 +5,18 @@ import Name from './components/Name'
 const App = () => {
   
   const [persons, setPersons] = useState([
-    {name: 'Hassan Siddig'}
+    {name: 'Hassan Siddig', number: '0115473981'}
   ])
 
   const [newName, setNewName] = useState('')
-
+  const [newNumber, SetNewNumber] = useState('')
 
   const handleNameChange = (event) => {
     setNewName(event.target.value)
+  }
+
+  const handleNumberChange = (event) => {
+    SetNewNumber(event.target.value)
   }
 
   const addPerson = (event) => {
@@ -20,7 +24,8 @@ const App = () => {
     event.preventDefault()
 
     const personObject = {
-      name: newName
+      name: newName,
+      number: newNumber
     }
 
     if (persons.some(person => person.name === newName)) {
@@ -30,7 +35,10 @@ const App = () => {
     }
 
     setNewName('')
+    SetNewNumber('')
   }
+
+
 
   return (
     <div>
@@ -39,11 +47,14 @@ const App = () => {
         <div>
           name: <input value={newName} onChange={handleNameChange} />
         </div>
+        <div>
+          number: <input value={newNumber} onChange={handleNumberChange}  />
+        </div>
         <button type="submit">add</button>
       </form>
       <h2>Numbers</h2>
       {persons.map(person => 
-        <Name key={person.name} name={person.name} />
+        <Name key={person.name} name={person.name} number={person.number} />
       )}
     </div>
   )
