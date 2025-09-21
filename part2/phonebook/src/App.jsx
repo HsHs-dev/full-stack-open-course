@@ -30,8 +30,7 @@ const App = () => {
     SetNewNumber(event.target.value)
   }
 
-  const handleSearchChange = (event) => {
-    setSearch(event.target.value)
+  const handleSearchChange = (event) => { setSearch(event.target.value)
   }
 
   const addPerson = (event) => {
@@ -46,7 +45,11 @@ const App = () => {
     if (persons.some(person => person.name === newName)) {
       alert(`${newName} is already added to phonebook`)
     } else {
-      setPersons(persons.concat(personObject))
+      axios
+        .post('http://localhost:3001/persons', personObject)
+        .then(response => {
+          setPersons(persons.concat(response.data))
+        })
     }
 
     setNewName('')
