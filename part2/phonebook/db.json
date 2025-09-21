@@ -2,7 +2,7 @@
   "persons": [
     {
       "name": "Arto Hellas",
-      "number": "040-123456",
+      "number": "045-03201407",
       "id": "1"
     },
     {
@@ -19,21 +19,6 @@
       "name": "Mary Poppendieck",
       "number": "39-23-6423122",
       "id": "4"
-    },
-    {
-      "id": "19ba",
-      "name": "mohammed siddig",
-      "number": "0500423058"
-    },
-    {
-      "id": "e71e",
-      "name": "hassan siddig",
-      "number": "55401564564"
-    },
-    {
-      "id": "9976",
-      "name": "Omaima",
-      "number": "011565212\\"
     }
   ]
 }

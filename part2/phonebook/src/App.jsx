@@ -41,21 +41,45 @@ const App = () => {
       number: newNumber
     }
 
-    if (persons.some(person => person.name === newName)) {
-      alert(`${newName} is already added to phonebook`)
+    const existing = persons.find(p => p.name === newName)
+
+    if (existing) {
+      if (existing.number === newNumber) {
+        alert(`${newName} is already added to phonebook`)
+      } else if (confirm(
+      `${newName} is already in the phonebook, replace the old number with a new one?`)) {
+        personService
+          .update(existing.id, personObject)
+          .then(returnedPerson => {
+            setPersons(persons.map(p => p.id === existing.id ? returnedPerson : p))
+          })
+      }
     } else {
       personService
-        .create(personObject)
-        .then(newPerson => {
-          setPersons(persons.concat(newPerson))
-        })
+       .create(personObject)
+       .then(newPerson => {
+         setPersons(persons.concat(newPerson))
+       })
     }
 
     setNewName('')
     SetNewNumber('')
   }
 
-
+  const removePerson = id => {
+    const person = persons.find(p => p.id === id)
+    if (confirm(`Delete ${person.name} ?`)) {
+      personService
+        .remove(id)
+        .then(() => {
+          setPersons(persons.filter(p => p.id !== id))
+        })
+        .catch(error => {
+          alert(`${person.name} has already being removed from the server`)
+          setPersons(persons.filter(p => p.id !== id))
+        })
+    }
+ }
 
   return (
     <div>
@@ -71,7 +95,7 @@ const App = () => {
           addPerson={addPerson}
         />
       <h3>Numbers</h3>
-      <Persons persons={persons} filter={search} />
+      <Persons persons={persons} filter={search} removePerson={removePerson}/>
     </div>
   )
 
