@@ -68,6 +68,18 @@ app.post('/api/persons/', (req, res) => {
     })
   }
 
+  if (!body.name || !body.number) {
+    return res.status(400).json({
+      error: 'name or number is missing'
+    })
+  }
+
+  if (persons.some(person => person.name === body.name)) {
+    return res.status(400).json({
+      error: `name '${body.name}' already exists`
+    })
+  }
+
   const person = {
     id: generateId(),
     name: body.name,
