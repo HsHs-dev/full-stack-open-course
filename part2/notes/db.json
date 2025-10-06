@@ -1,0 +1,89 @@
+{
+  "notes": [
+    {
+      "id": "1",
+      "content": "HTML is easy",
+      "important": false
+    },
+    {
+      "id": "2",
+      "content": "Browser can execute only JavaScript",
+      "important": false
+    },
+    {
+      "id": "3",
+      "content": "GET and POST are the most important methods of HTTP protocol",
+      "important": false
+    },
+    {
+      "id": "c8a9",
+      "content": "a new note...",
+      "important": false
+    },
+    {
+      "id": "d9f1",
+      "content": "hassan is the greatest of all time",
+      "important": false
+    },
+    {
+      "id": "f2f3",
+      "content": "hello",
+      "important": false
+    },
+    {
+      "id": "a23c",
+      "content": "another new note",
+      "important": false
+    },
+    {
+      "id": "3afb",
+      "content": "dayum",
+      "important": false
+    },
+    {
+      "id": "f9c9",
+      "content": "a new note... AGAIN",
+      "important": false
+    },
+    {
+      "id": "fe90",
+      "content": "a new note... AGAIN",
+      "important": false
+    },
+    {
+      "id": "6c83",
+      "content": "a new note... AGAIN",
+      "important": false
+    },
+    {
+      "id": "39f6",
+      "content": "a new note...",
+      "important": false
+    },
+    {
+      "id": "f128",
+      "content": "WHAT",
+      "important": false
+    },
+    {
+      "id": "ecb0",
+      "content": "a new note...",
+      "important": false
+    },
+    {
+      "id": "6e8f",
+      "content": "a new note...",
+      "important": false
+    },
+    {
+      "id": "7c29",
+      "content": "a new note...",
+      "important": true
+    },
+    {
+      "id": "382c",
+      "content": "a new note...",
+      "important": true
+    }
+  ]
+}
