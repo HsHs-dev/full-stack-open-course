@@ -36,7 +36,7 @@ app.get('/api/notes/:id', (request, response) => {
     response.json(note)
   } else {
     // override the default 'not found' message
-    response.statusMessage = "Current note does not exist"
+    response.statusMessage = "Current note id does not exist"
     response.status(404).end()
   }
 })
