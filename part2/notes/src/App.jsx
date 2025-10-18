@@ -16,7 +16,12 @@ const App = () => {
     noteService
       .getAll()
       .then(initialNotes => {
-        setNotes(initialNotes)
+        if (Array.isArray(initialNotes)) {
+          setNotes(initialNotes)
+        } else {
+          console.warn('fetched data is not an array')
+          setNotes([])
+        }
       })
   }, [])
 
