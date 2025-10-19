@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Filter from './components/Filter'
 import PersonForm from './components/PersonForm'
 import Persons from './components/Persons'
@@ -14,6 +14,8 @@ const App = () => {
   const [search, setSearch] = useState('')
   const [message, setMessage] = useState(null)
   const [messageClass, setMessageClass] = useState(null)
+
+  const messageTimeoutRef = useRef(null)
 
 
   useEffect(() => {
@@ -37,11 +39,18 @@ const App = () => {
 
   const displayMessage = (message, classOfMessage) => {
     const messageDuration = 4000
+
+    if (messageTimeoutRef.current) {
+      clearTimeout(messageTimeoutRef.current)
+    }
+
     setMessage(message)
     setMessageClass(classOfMessage)
-    setTimeout(() => {
+
+    messageTimeoutRef.current = setTimeout(() => {
       setMessage(null)
       setMessageClass(null)
+      messageTimeoutRef.current = null
     }, messageDuration)
   }
 
